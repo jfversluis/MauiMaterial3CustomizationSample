@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMaterial3CustomizationSample.MainPage"
+             Title="Material 3">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,24" Spacing="12">
+            <Label Text="Custom Material 3"
+                   x:Name="PageTitleLabel"
+                   FontSize="26"
+                   FontAttributes="Bold" />
+
+            <Label Text="These teal accents come from Android color roles in colors.xml."
+                   FontSize="14" />
+
+            <SearchBar Placeholder="Search health goals" />
+
+            <Entry Placeholder="Name"
+                   Text="Gerald" />
+
+            <Editor Placeholder="Notes"
+                    Text="Training for a 10K and keeping hydration on track."
+                    AutoSize="TextChanges"
+                    HeightRequest="72" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <DatePicker x:Name="CheckupDatePicker"
+                            Grid.Column="0" />
+                <TimePicker x:Name="ReminderTimePicker"
+                            Grid.Column="1" />
+            </Grid>
+
+            <Picker x:Name="GoalPicker"
+                    Title="Primary goal">
+                <Picker.Items>
+                    <x:String>Build strength</x:String>
+                    <x:String>Improve sleep</x:String>
+                    <x:String>Run faster</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Daily progress"
+                   FontAttributes="Bold" />
+
+            <ProgressBar Progress="0.68" />
+
+            <Slider Minimum="0"
+                    Maximum="100"
+                    Value="68" />
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                <CheckBox IsChecked="True" />
+                <Label Grid.Column="1"
+                       Text="Sync activity automatically"
+                       VerticalOptions="Center" />
+
+                <Switch Grid.Row="1"
+                        IsToggled="True" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Enable daily reminders"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <HorizontalStackLayout Spacing="16">
+                <RadioButton Content="Light"
+                             GroupName="Theme"
+                             IsChecked="True" />
+                <RadioButton Content="Dark"
+                             GroupName="Theme" />
+            </HorizontalStackLayout>
+
+            <Button Text="Save profile"
+                    HeightRequest="54"
+                    HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
