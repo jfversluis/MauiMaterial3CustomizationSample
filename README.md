@@ -27,3 +27,14 @@ dotnet build -t:Run -f net10.0-android
 For real Android Material 3 theme changes, update the `m3_sys_color_light_*` and `m3_sys_color_dark_*` values in `colors.xml`, not only `colorPrimary`.
 
 For app-level MAUI styling, update `Resources/Styles/Colors.xaml` and bind those resources from XAML with `StaticResource` or `AppThemeBinding`.
+
+## Can it be only Colors.xaml?
+
+Only if you are styling your own MAUI/XAML UI. `Colors.xaml` defines resources, but it does not automatically change Android's native Material 3 theme.
+
+This repo includes two experiment screenshots:
+
+- `screenshots/experiment-colors-xaml-only.png`: Android `colors.xml` was reset to the default purple values while `Colors.xaml` stayed teal. The explicitly bound XAML card is teal, but the native Material 3 controls still use the Android theme colors.
+- `screenshots/experiment-colors-xaml-with-styles.png`: `Styles.xaml` was also merged, so some MAUI control properties picked up teal XAML resources. Native theme-owned pieces still come from Android resources.
+
+Recommended rule: put the same palette in both places. Use `colors.xml` for Android's native Material 3 theme and `Colors.xaml` for MAUI/XAML UI that you style yourself.
