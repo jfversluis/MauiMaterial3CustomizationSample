@@ -5,14 +5,70 @@
              Title="Material 3">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24,24" Spacing="12">
+        <VerticalStackLayout Padding="24,24" Spacing="14">
             <Label Text="Custom Material 3"
                    x:Name="PageTitleLabel"
                    FontSize="26"
                    FontAttributes="Bold" />
 
-            <Label Text="These teal accents come from Android color roles in colors.xml."
+            <Label Text="This page shows both Android Material 3 theme colors and MAUI XAML resources."
                    FontSize="14" />
+
+            <Border Padding="18"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryContainer}, Dark={StaticResource PrimaryContainerDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource OutlineVariantLight}, Dark={StaticResource OutlineVariantDark}}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="MAUI Colors.xaml resources"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource OnPrimaryContainer}, Dark={StaticResource OnPrimaryContainerDark}}" />
+
+                    <Label Text="This card, these swatches, and the button below are explicitly styled from Resources/Styles/Colors.xaml."
+                           FontSize="13"
+                           TextColor="{AppThemeBinding Light={StaticResource OnPrimaryContainer}, Dark={StaticResource OnPrimaryContainerDark}}" />
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        <Border Grid.Column="0"
+                                HeightRequest="52"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="18" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Border Grid.Column="1"
+                                HeightRequest="52"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="18" />
+                            </Border.StrokeShape>
+                        </Border>
+                        <Border Grid.Column="2"
+                                HeightRequest="52"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceLight}, Dark={StaticResource SurfaceDark}}"
+                                Stroke="{AppThemeBinding Light={StaticResource OutlineLight}, Dark={StaticResource OutlineDark}}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="18" />
+                            </Border.StrokeShape>
+                        </Border>
+                    </Grid>
+
+                    <Button Text="XAML styled action"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
+                            TextColor="{AppThemeBinding Light={StaticResource OnPrimary}, Dark={StaticResource OnPrimaryDark}}"
+                            CornerRadius="22"
+                            HorizontalOptions="Fill" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Android colors.xml Material 3 theme"
+                   FontAttributes="Bold" />
+
+            <Label Text="The controls below are not explicitly colored in XAML. Their teal accents come from Android m3_sys_color_* values in colors.xml."
+                   FontSize="13" />
 
             <SearchBar Placeholder="Search health goals" />
 
